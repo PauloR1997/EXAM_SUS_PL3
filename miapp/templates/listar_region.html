@@ -1,9 +1,60 @@
 {% extends 'layout.html' %}
+
 {% block title %}
-    Listar regiones
-{% endblock %}
+    {{titulo}}
+{% endblock title %}
+
 {% block content %}
-    <H1 class="title"> 
-        Listar regiones
-    </H1>
-{% endblock %}
+    <h1 class="title"> {{titulo}} </h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% for region in regiones %}
+        <div class="region-item">
+            {% if region.imagen != 'null' %}
+                <br>
+                <div class="image">
+                    <img src="{{region.imagen.url}}" />
+                </div>
+            {% endif %}
+            <div class="data">
+                <br>
+                <h2>
+                    Date: {{region.date}}
+                </h2>
+                <h2>
+                    Name: {{region.name}}
+                </h2>
+                <h2>
+                    Cases: {{region.cases}}
+                </h2>
+                <h2>
+                    Deaths: {{region.deaths}}
+                </h2>
+                <h2>
+                    Lethality: {{region.lethality}}
+                </h2>
+                <span class="date">
+                    Creado: {{region.creado}}
+                </span>
+
+                <p>
+
+                    <br>
+                    <a href="{% url 'eliminar_region' id=region.id %}" class="btn btn-delete">
+                        Eliminar
+                    </a>
+                </p>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

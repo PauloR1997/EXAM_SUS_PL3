@@ -25,7 +25,8 @@ urlpatterns = [
 
     path('listar_region/', views.listar_region, name="listar_region"),
     path('create-full-region/',views.create_full_region, name="create_full_region"),
-
+    path('eliminar_region/<int:id>',views.eliminar_region, name="eliminar_region"),
+    path('save-region/',views.save_region, name="save_region"),
     path('listar_empleado/', views.listar_empleado, name="listar_empleado"),
     path('create-full-empleado/',views.create_full_empleado, name="create_full_empleado"),
 ]

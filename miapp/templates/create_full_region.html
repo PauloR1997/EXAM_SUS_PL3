@@ -1,9 +1,22 @@
 {% extends 'layout.html' %}
+
 {% block title %}
-    Agregar regiones
+    Regiones
 {% endblock %}
 {% block content %}
     <H1 class="title"> 
-        Agregar regiones
+        Registro de regiones
     </H1>
+    {% if form.errors %}
+        <strong class="sign_error">
+            Hay errores en el Formulario
+            {{form.errors}}
+        </strong>
+    {% endif %}
+    <form class="data_1" action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar" />
+
+    </form>
 {% endblock %}
