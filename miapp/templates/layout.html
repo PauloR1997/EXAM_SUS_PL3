@@ -1,0 +1,63 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+
+            {% endblock title %}
+            | Ramirez Paulo
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <img src="{% static 'imagen/virus.png' %}" />
+                <h1> Sala Situacional   </h1>
+                <h2> COVID-19 Peru  </h2>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}"> Inicio</a>
+                </li>
+                <li>
+                    <a href="{% url 'listar_region' %}">Region</a>
+                </li>
+                <li>
+                    <a href="{% url 'create_full_region' %}">Crear Region</a>
+                </li>
+                <li>
+                    <a href="{% url 'listar_empleado' %}">Empleado</a>
+                </li>
+                <li>
+                    <a href="{% url 'create_full_empleado' %}">Crear empleado</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="barra">
+
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+
+        </div>
+
+        <div id="content">
+            <div class="box">
+                {% block content %}
+                    <strong> 
+                       Contenido por defecto desde layout.html
+                    </strong>
+                {% endblock content %}
+            </div>
+        </div>
+        <footer>
+            UNTELS - Lenguaje de Programación III &copy; Ramirez Paulo - {% now "d/m/y h:m:s" %}
+        </footer>
+    </body>
+</html>
